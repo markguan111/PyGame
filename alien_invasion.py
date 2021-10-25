@@ -45,6 +45,8 @@ class AlienInvasion:
             self._update_screen()
             
             
+# A helper method does work inside a class but ins't meant to be called Through an instance
+# _check_events() will simplify run_game() and isolate the event management loop
 
     def _check_events(self):
         for event in pygame.event.get():
