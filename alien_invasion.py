@@ -62,6 +62,7 @@ class AlienInvasion:
 
 
     def _check_play_button(self, mouse_pos):
+        #deactivate play botton
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if button_clicked and not self.stats.game_active:
             self.settings.initialize_dynamic_settings()
@@ -74,6 +75,7 @@ class AlienInvasion:
             self.bullets.empty()
             self._create_fleet()
             self.ship.center_ship()
+            #make mouse invisible
             pygame.mouse.set_visible(False)
 
 
@@ -109,6 +111,7 @@ class AlienInvasion:
             self.bullets.empty()
             self._create_fleet()
             self.ship.center_ship()
+            # A pause whenn alien hits the ship
             sleep(0.5)
         else:
             self.stats.game_active = False
@@ -118,6 +121,7 @@ class AlienInvasion:
     def _create_fleet(self):
         alien = Alien(self)
         alien_width, alien_height = alien.rect.size
+        #set tge margin
         available_space_x = self.settings.screen_width - (2 * alien_width)
         number_aliens_x = available_space_x // (2 * alien_width)
         ship_height = self.ship.rect.height
